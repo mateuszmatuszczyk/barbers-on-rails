@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+# <p>
+#   <strong>Customer name:</strong>
+#   <%= @customer.customer_name %>
+# </p>
+
+<p>
+  <strong>Customer number:</strong>
+  <%= @customer.customer_number %>
+</p>
+
+<p>
+  <strong>Customer photo path:</strong>
+  <%= @customer.customer_photo_path %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @customer.user %>
+</p>
+
+<h2>Appointments</h2>
+<% @customer.appointments.each do |appointment| %>
+<p>
+<b>App status:</b>
+<%= appointment.status %>
+</p>
+<% end %>
+<%= link_to 'Edit Profile', edit_customer_path(@customer) %> |
+<%= link_to 'Edit Appointment', edit_customer_appointment_path(@customer) %> |
+<%= link_to 'Back', customers_path %> |
+<%= link_to 'Show Appointments', customer_appointments_path(@customer) %>

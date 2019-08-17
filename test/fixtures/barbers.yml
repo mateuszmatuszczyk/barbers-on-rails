@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barber_name: Edward
+  barber_bio: Cutting hair with his hands!
+  barber_photo_path: edward.jpg
+
+two:
+  barber_name: Johnny
+  barber_bio: Master of his craft.
+  barber_photo_path: johnny.jpg
