@@ -1,0 +1,71 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-flex" style="background-color: black; height:120px;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <%= link_to 'Barbers on Rails', root_path, class: 'navbar-brand' %>
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="nav" style="float:right; color:white; margin-top:25px;">
+                    <% if user_signed_in? && current_user.admin %>
+                    <div>Signed in as... <%= current_user.email %>
+                        <%= link_to 'Sign out', destroy_user_session_path,:method => :delete, :class => 'btn btn-danger'%>
+                    </div>
+                    <%elsif user_signed_in?%>
+                    <div>Signed in as... <%= current_user.email %>
+                        <%= link_to 'Sign out', destroy_user_session_path,:method => :delete , :class => 'btn btn-danger'%>
+                    </div>
+                    <% else %>
+                    <li><%= link_to 'Register', new_user_registration_path %> </li>
+                    <li><%= link_to 'Sign in', new_user_session_path %></li>
+                    <%end%>
+                </ul>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+
+
+
+        <!-- Navbar 2 -->
+    </div>
+    <div class="container-flex" style="background-color: rgba(255,255,255,0.8); height: 100px;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="nav" style="color:white; margin-left: 27%;">
+                    <% if user_signed_in? && current_user.admin %>
+                    <li><%= link_to "Admin Dashboard", root_path, :class => 'btn btn-default'  %></li>
+                    <%elsif user_signed_in?%>
+                    <li><%= link_to "Customer Profile", "/signedinuserprofile", :class => 'btn btn-default' %></li>
+                    <li><%= link_to "Barbers", barbers_path , :class => 'btn btn-default' %></li>
+                    <li><%= link_to "Services", services_path , :class => 'btn btn-default' %></li>
+                    <li><%= link_to "Your Appointments", customer_appointments_path(current_user), :class => 'btn btn-default'  %></li>
+                    <%end%>
+                </ul>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+</nav>
+
+
+<div class="inner">
+
+
+</div>
+</nav>

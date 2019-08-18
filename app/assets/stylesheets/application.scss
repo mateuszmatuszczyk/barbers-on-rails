@@ -10,9 +10,59 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "base/*";
+@import "partials/*";
+
+@font-face {
+    font-family: 'HairFont';
+    src: asset_url('AlphaWomanHair.ttf')format('truetype');
+} 
+
+@font-face {
+    font-family: 'BarberFont';
+    src: asset_url('BarberStreet.ttf')format('truetype');
+}
+
+
+
+.title-container{
+    font-family: BarberFont;
+    font-size:4em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:20px;
+    h1{
+        margin:0;
+        font-size:2em;
+    }
+}
+.elements{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.element{
+    width:30%;
+    min-width: 300px;
+}
+
+.navbar-brand{
+    font-family: BarberFont;
+    font-size:5em; 
+    position:absolute;
+    left:40%;
+    margin-top:20px;
+}
+
+.navbar-header{
+    padding:20px;
+}
+
+.container{
+    background-color:rgba(255,255,255,0.5)
+}

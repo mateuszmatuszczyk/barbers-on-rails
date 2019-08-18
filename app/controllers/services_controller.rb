@@ -1,16 +1,6 @@
 class ServicesController < ApplicationController
 before_action :authenticate_user! 
-before_action :ensure_admin
-# before_action :authenticate_user!
-
 # before_action  :ensure_admin, only: [:edit, :destroy]
-
-  
-  def ensure_admin
-    unless current_user && current_user.admin?
-      render :text => "Access Error Message", :status => :unauthorized
-    end
-  end
 
   def index
     @services = Service.all
@@ -79,6 +69,6 @@ before_action :ensure_admin
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:service_name, :service_description, :service_duration, :service_price)
+      params.require(:service).permit(:service_name, :service_description, :service_duration, :service_price, :appointment_id)
     end
 end

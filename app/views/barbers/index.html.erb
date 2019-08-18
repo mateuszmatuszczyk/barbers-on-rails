@@ -1,8 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Barbers</h1>
+<div class ="title-container">
+  <h1>Barbers</h1>
+</div>
 
-<table>
+<div class="elements">
+  <% @barbers.each do |barber| %>
+    <div class="element">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><%= link_to (barber.barber_name), barber_path(barber) %></h3>
+          <p><%= barber.barber_bio %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<!-- <table>
   <thead>
     <tr>
       <th>Barber name</th>
@@ -26,7 +41,7 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 <!-- make the link below only available to the admin -->

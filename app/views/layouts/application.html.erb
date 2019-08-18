@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN"> 
   <head>
     <title>BarbersOnRails</title> 
     <%= csrf_meta_tags %>
@@ -9,37 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  </head>
+  </head>  
 
   <body>
     <div class="container">  
 
         <%= render 'layouts/alerts'%>
         <%= render 'layouts/navigation' %>
-        <nav role="navigation">
-        <div class="inner">
-        <ul class="nav" id="nav">
-        <li><%= link_to "Admin Dashboard", root_path %></li>
         
-      <% if user_signed_in? %>
-          <div>Signed in as... <%= current_user.email %>
-          (<%= link_to 'Sign out', destroy_user_session_path,
-          :method => :delete%>)
-          </div>
-      <% else %>
-    <li><%= link_to 'Register', new_user_registration_path %> </li>
-      <li><%= link_to 'Sign in', new_user_session_path %></li>
-        <%end%>
-    </ul>
-    </div>
-    </nav>  
     <%= yield %>
   </div>
   </body>
 </html>
-
-<style>
-.container{
-  background-color:rgba(255,255,255,0.8);
-}
-</style>

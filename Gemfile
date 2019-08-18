@@ -29,6 +29,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem "jquery-rails"
+gem 'bootstrap_form'
 
 
 

@@ -1,10 +1,10 @@
-<%= form_with(model: @appointment, local: true) do |form| %>
-  <% if @appointment.errors.any? %>
+<%= form_with(model: appointment, local: true) do |form| %>
+  <% if appointment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
       <ul>
-      <% @appointment.errors.full_messages.each do |message| %>
+      <% appointment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -32,19 +32,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-<!-- 
-  <div class="field">
     <%= form.label :customer_id %>
     <%= form.text_field :customer_id %>
   </div>
--->
+
   <div class="field">
-    <!-- <%= form.label :barber_id %>
-    <%= form.text_field :barber_id %> -->
-   <%= form.collection_select( :barber_id, Barber.all, :id, :barber_name) %>
+    <%= form.label :barber_id %>
+    <%= form.text_field :barber_id %>
   </div>
 
   <div class="actions">

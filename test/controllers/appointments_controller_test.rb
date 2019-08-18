@@ -17,7 +17,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create appointment" do
     assert_difference('Appointment.count') do
-      post appointments_url, params: { appointment: { appointment_date: @appointment.appointment_date, appointment_duration: @appointment.appointment_duration, appointment_time: @appointment.appointment_time, barber_id: @appointment.barber_id, customer_id: @appointment.customer_id, status: @appointment.status, total_cost: @appointment.total_cost } }
+      post appointments_url, params: { appointment: { appointment_date: @appointment.appointment_date, appointment_duration: @appointment.appointment_duration, appointment_time: @appointment.appointment_time, barber_id: @appointment.barber_id, customer_id: @appointment.customer_id, total_cost: @appointment.total_cost } }
     end
 
     assert_redirected_to appointment_url(Appointment.last)
@@ -34,7 +34,7 @@ class AppointmentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update appointment" do
-    patch appointment_url(@appointment), params: { appointment: { appointment_date: @appointment.appointment_date, appointment_duration: @appointment.appointment_duration, appointment_time: @appointment.appointment_time, barber_id: @appointment.barber_id, customer_id: @appointment.customer_id, status: @appointment.status, total_cost: @appointment.total_cost } }
+    patch appointment_url(@appointment), params: { appointment: { appointment_date: @appointment.appointment_date, appointment_duration: @appointment.appointment_duration, appointment_time: @appointment.appointment_time, barber_id: @appointment.barber_id, customer_id: @appointment.customer_id, total_cost: @appointment.total_cost } }
     assert_redirected_to appointment_url(@appointment)
   end
 

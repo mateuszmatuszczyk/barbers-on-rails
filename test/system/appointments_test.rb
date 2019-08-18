@@ -19,7 +19,6 @@ class AppointmentsTest < ApplicationSystemTestCase
     fill_in "Appointment time", with: @appointment.appointment_time
     fill_in "Barber", with: @appointment.barber_id
     fill_in "Customer", with: @appointment.customer_id
-    fill_in "Status", with: @appointment.status
     fill_in "Total cost", with: @appointment.total_cost
     click_on "Create Appointment"
 
@@ -36,7 +35,6 @@ class AppointmentsTest < ApplicationSystemTestCase
     fill_in "Appointment time", with: @appointment.appointment_time
     fill_in "Barber", with: @appointment.barber_id
     fill_in "Customer", with: @appointment.customer_id
-    fill_in "Status", with: @appointment.status
     fill_in "Total cost", with: @appointment.total_cost
     click_on "Update Appointment"
 

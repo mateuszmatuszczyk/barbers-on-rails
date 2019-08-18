@@ -1,0 +1,41 @@
+body {
+    margin-top: 220px;
+   }
+.navbar-default, .navbar-toggle:focus, .collapsed, button.navbar-toggle {
+    background: $navbarColor !important;
+    border: none;
+    a {
+      color: white;
+    }
+  }
+
+  .navbar-default{
+    background:transparent !important;
+  }
+  nav {
+    li{
+      margin-left:20px;
+      width:200px;
+    }
+    .navbar-header {
+      .navbar-brand{
+        color: white !important;
+      }
+      width: 100%;
+      button, .navbar-brand {
+        transition: opacity 0.15s;
+      }
+      button {
+        margin-right: 0;
+      }
+      button:hover, .navbar-brand:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+    color:rgb(255, 255, 255);
+    background-color:rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+  }
