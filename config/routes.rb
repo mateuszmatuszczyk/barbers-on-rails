@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  	# root url
-  root 'home#index'
+  root 'admin_dashboard#index'
 
   resources :customers do
     resources :appointments do
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   
-  get 'home/index'
+  get '/admin_dashboard/index'
   get '/signedinuserprofile' => 'customers#signedinuserprofile'
   # get '/signedinadmin' => ''
 

@@ -27,12 +27,13 @@
 
 <p>
   <strong>Customer:</strong>
-  <%= @appointment.customer %>
+  <%= @appointment.customer.user.email %> </br>
+  <%= @appointment.customer.customer_number %>
 </p>
 
 <p>
   <strong>Barber:</strong>
-  <%= @appointment.barber %>
+  <%= @appointment.barber.barber_name %>
 </p>
 
 <%= link_to 'Edit', edit_appointment_path(@appointment) %> |

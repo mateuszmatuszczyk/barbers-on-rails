@@ -42,9 +42,9 @@
   </div>
 -->
   <div class="field">
-    <%= form.label :barber_id %>
-    <%= form.text_field :barber_id %>
-   <%# <%= collection_select( :appointment, :id, Barber.all, :id, :barber_name, {},{:multiple=>false}) %>
+    <!-- <%= form.label :barber_id %>
+    <%= form.text_field :barber_id %> -->
+   <%= form.collection_select( :barber_id, Barber.all, :id, :barber_name) %>
   </div>
 
   <div class="actions">

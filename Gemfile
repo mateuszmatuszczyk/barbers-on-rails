@@ -24,12 +24,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-# Bootstrap Gem
+
+# Bootstrap Gem , Font-awesome, jquery-rails Gems are used for Bootstrap 
 gem 'bootstrap-sass'
-# Font-awesome, jquery-rails and popper_js Gems are used for Admin's Dashboard Bootstrap template
 gem 'font-awesome-rails'
 gem "jquery-rails"
-gem 'popper_js', '~> 1.12.9'
+
 
 
 group :development do

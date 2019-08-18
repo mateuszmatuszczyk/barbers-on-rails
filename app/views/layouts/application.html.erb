@@ -15,11 +15,11 @@
     <div class="container">  
 
         <%= render 'layouts/alerts'%>
-        
+        <%= render 'layouts/navigation' %>
         <nav role="navigation">
         <div class="inner">
         <ul class="nav" id="nav">
-        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Admin Dashboard", root_path %></li>
         
       <% if user_signed_in? %>
           <div>Signed in as... <%= current_user.email %>

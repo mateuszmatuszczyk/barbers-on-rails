@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
     user = User.find_by_id(current_user.id)
 
     if user.admin 
-      redirect_to "/home/index"
+      redirect_to "/admin_dashboard/index"
     
     elsif customer.nil? 
       redirect_to "/customers/new"
