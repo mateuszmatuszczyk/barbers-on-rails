@@ -1,5 +1,5 @@
 body {
-    margin-top: 220px;
+    margin-top: 260px;
    }
 .navbar-default, .navbar-toggle:focus, .collapsed, button.navbar-toggle {
     background: $navbarColor !important;
@@ -13,10 +13,12 @@ body {
     background:transparent !important;
   }
   nav {
+    @media only screen and (min-width: 966px) {
     li{
       margin-left:20px;
-      width:200px;
+      width:10vw;
     }
+  }
     .navbar-header {
       .navbar-brand{
         color: white !important;

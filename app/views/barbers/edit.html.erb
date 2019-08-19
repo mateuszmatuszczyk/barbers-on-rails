@@ -1,6 +1,14 @@
-<h1>Editing Barber</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form', barber: @barber %>
+<div class="title-container">
+    <h1>Edit Barber</h1>
 
-<%= link_to 'Show', @barber %> |
-<%= link_to 'Back', barbers_path %>
+</div>
+<div class="row">
+    <div class="container col-lg-6 col-md-offset-3 text-center">
+        <%= render 'form', barber: @barber %>
+
+        <%= link_to 'Show', @barber %> |
+        <%= link_to 'Back', barbers_path, class: "btn btn-default" %>
+    </div>
+</div>

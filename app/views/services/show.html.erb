@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="title-container">
+  <h1><%= @service.service_name%></h1>
+</div>
+<div class="row">
+  <div class="container col-lg-6 col-md-offset-3 text-center">
+    <p>
+      <strong>Service name:</strong>
+      <%= @service.service_name %>
+    </p>
 
-<p>
-  <strong>Service name:</strong>
-  <%= @service.service_name %>
-</p>
+    <p>
+      <strong>Service description:</strong>
+      <%= @service.service_description %>
+    </p>
 
-<p>
-  <strong>Service description:</strong>
-  <%= @service.service_description %>
-</p>
+    <p>
+      <strong>Service duration:</strong>
+      <%= @service.service_duration %>
+    </p>
 
-<p>
-  <strong>Service duration:</strong>
-  <%= @service.service_duration %>
-</p>
-
-<p>
-  <strong>Service price:</strong>
-  <%= @service.service_price %>
-</p>
-
-<p>
-  <strong>Appointment:</strong>
-  <%= @service.appointment %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+    <p>
+      <strong>Service price:</strong>
+      <%= @service.service_price %>
+    </p>
+    <% if current_user.admin? %>
+    <%= link_to 'Edit', edit_service_path(@service), :class => 'btn btn-default'  %> |
+    <% end %>
+    <%= link_to 'Back', services_path, :class => 'btn btn-default'  %>
+  </div>
+</div>

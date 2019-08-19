@@ -1,40 +1,53 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Appointment time:</strong>
-  <%= @appointment.appointment_time %>
-</p>
-
-<p>
-  <strong>Appointment date:</strong>
-  <%= @appointment.appointment_date %>
-</p>
-
-<p>
-  <strong>Appointment duration:</strong>
-  <%= @appointment.appointment_duration %>
-</p>
-
-<p>
-  <strong>Total cost:</strong>
-  <%= @appointment.total_cost %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @appointment.status %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @appointment.customer.user.email %> </br>
-  <%= @appointment.customer.customer_number %>
-</p>
-
-<p>
-  <strong>Barber:</strong>
-  <%= @appointment.barber.barber_name %>
-</p>
-
-<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
-<%= link_to 'Back', appointments_path %>
+<div class="title-container">
+  <h1>Appointment</h1>
+</div>
+<div class="row">
+  <div class="container col-lg-6 col-md-offset-3 text-center">
+    
+    <p>
+      <strong>Appointment date:</strong>
+      <%= @appointment.appointment_date %>
+    </p>
+            <p>
+              <strong>Appointment time:</strong>
+              <%= @appointment.appointment_time.strftime("%H:%M") %>
+            </p>
+        <p>
+            <strong>Customer Email:</strong>
+            <%= @appointment.customer.user.email %>
+          </p>
+          <p>
+              <strong>Customer Number:</strong>
+              <%= @appointment.customer.customer_number %>
+            </p>
+          
+          <p>
+            <strong>Barber:</strong>
+            <%= @appointment.barber.barber_name %>
+          </p>
+        
+        <p>
+          <strong>Appointment duration:</strong>
+          <%= @appointment.appointment_duration %>
+        </p>
+        
+        <p>
+          <strong>Total cost:</strong>
+          <%= @appointment.total_cost %>
+        </p>
+        
+        <p>
+          <strong>Status:</strong>
+          <%= @appointment.status %>
+        </p>
+        <p><strong>Services: </strong></br>
+          <% @appointment.services.each do |service| %>
+              <p><%= service.service_name %></p>
+          <% end %>
+        </ul>
+                  
+        <%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+        <%= link_to 'Back', appointments_path %>
+        
+  </div>
+</div>

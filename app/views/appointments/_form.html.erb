@@ -1,47 +1,45 @@
 <%= form_with(model: appointment, local: true) do |form| %>
-  <% if appointment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+<% if appointment.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
-      <ul>
-      <% appointment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% appointment.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :appointment_time %>
-    <%= form.time_select :appointment_time %>
-  </div>
+<div class="form-group">
+  <%= form.label :time %></br>
+  <%= form.time_select :appointment_time, class: "form-control" %>
+</div>
 
-  <div class="field">
-    <%= form.label :appointment_date %>
-    <%= form.date_select :appointment_date %>
-  </div>
+<div class="form-group">
+  <%= form.label :date %></br>
+  <%= form.date_select :appointment_date, class: "form-control" %>
+</div>
 
-  <div class="field">
-    <%= form.label :appointment_duration %>
-    <%= form.number_field :appointment_duration %>
-  </div>
+<div class="form-group">
+  <%= hidden_field_tag "appointment[service_ids][]",nil %>
+  <%= form.label :services %></br>
+  <% Service.all.each do |service| %>
+    <%= check_box_tag "appointment[service_ids][]", service.id, @appointment.service_ids.include?(service.id), id: dom_id(service)  %>
+    <%= label_tag dom_id(service), service.service_name %></br>
+  <% end%>
+</div>
+<!--
+<div class="form-group">
+  <%= form.label :total_cost %>
+  <%= form.text_field :total_cost, class: "form-control" %>
+</div> -->
+<div class="form-group">
 
-  <div class="field">
-    <%= form.label :total_cost %>
-    <%= form.text_field :total_cost %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :barber_id %>
-    <%= form.text_field :barber_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.label :barber_id %></br>
+    <%= form.select :barber_id, @barbers.collect { |barber| [barber.barber_name, barber.id] } %>
+</div>
+<div class="actions">
+  <%= form.submit class: "btn btn-default" %>
+</div>
 <% end %>

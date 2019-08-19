@@ -1,20 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="title-container">
+  <h1><%= @barber.barber_name%></h1>
+</div>
+<div class="row">
+  <div class="container col-lg-6 col-md-offset-3 text-center">
+      <p>
+          <strong>Barber Avatar:</strong></br>
+          <%= @barber.barber_photo_path %>
+        </p>
+    <p>
+      <strong>Barber Name:</strong></br>
+      <%= @barber.barber_name %>
+    </p>
 
-<p>
-  <strong>Barber name:</strong>
-  <%= @barber.barber_name %>
-</p>
+    <p>
+      <strong>Barber Bio:</strong></br>
+      <%= @barber.barber_bio %>
+    </p>
 
-<p>
-  <strong>Barber bio:</strong>
-  <%= @barber.barber_bio %>
-</p>
+    
 
-<p>
-  <strong>Barber photo path:</strong>
-  <%= @barber.barber_photo_path %>
-</p>
+    <% if current_user.admin? %>
+    <%= link_to 'Edit', edit_barber_path(@barber) %> |
+    <% end %>
+    <%= link_to 'Back', barbers_path %>
 
-
-<%= link_to 'Edit', edit_barber_path(@barber) %> |
-<%= link_to 'Back', barbers_path %>
+  </div>
+</div>

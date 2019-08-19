@@ -1,9 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<div class ="title-container">
-  <h1>Barbers</h1>
+<div class="title-container">
+  <h1>New Barber</h1>
 </div>
 
-<%= render 'form', barber: @barber %>
+<div class="row">
+  <div class="container col-lg-6 col-md-offset-3 text-center">
+    <%= render 'form', barber: @barber %>
 
-<%= link_to 'Back', barbers_path %>
+    <%= link_to 'Back', barbers_path %>
+
+  </div>
+</div>

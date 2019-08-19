@@ -12,7 +12,7 @@ User.create!([
 ])
 
 Barber.create!([
-  {barber_name: "Edward", barber_bio: "Handy with scissors!"},
-  {barber_name: "Baldy", barber_bio: "The only thing in his life that came out right!"},
+  {barber_name: "Edward", barber_bio: "Handy with scissors! \n Edward has been cutting hair since the age of 5. Vivamus aliquam sagittis sapien sit amet pulvinar. Nam et semper leo. Vivamus vel enim neque. Suspendisse eget luctus urna, sit amet ultricies dolor. Sed iaculis pretium viverra. Nunc viverra pulvinar est a interdum."},
+  {barber_name: "Baldy", barber_bio: "The only thing in his life that came out right! \n Baldy might have lost all his hair but you can bet that he hasn't lost his passion for cutting the hair that his clients still have. Suspendisse eget luctus urna, sit amet ultricies dolor. Sed iaculis pretium viverra. Nunc viverra pulvinar esta."},
 ])
 

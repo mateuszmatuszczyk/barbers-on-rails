@@ -1,7 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class ="title-container">
+  <h1>Customers</h1>
+</div>
 
-<h1>Customers</h1>
+<div class="elements">
+  <% @customers.each do |customer| %>
+    <div class="element">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><%= link_to (customer.customer_name), customer_path(customer) %></h3>
+          <p><strong>Name: </strong><%= customer.customer_name %></p>
+          <p><strong>Number: </strong><%= customer.customer_number %></p>
+          <p><strong>Name: </strong><%= customer.customer_number %></p>
+        <p><strong>Avatar: </strong><%= customer.customer_photo_path %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
+<!-- 
 <table>
   <thead>
     <tr>
@@ -28,6 +45,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Customer', new_customer_path %>
+<br> -->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_035637) do
+ActiveRecord::Schema.define(version: 2019_08_19_154108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 2019_04_03_035637) do
     t.datetime "updated_at", null: false
     t.index ["barber_id"], name: "index_appointments_on_barber_id"
     t.index ["customer_id"], name: "index_appointments_on_customer_id"
+  end
+
+  create_table "appointments_services", id: false, force: :cascade do |t|
+    t.bigint "appointment_id", null: false
+    t.bigint "service_id", null: false
+    t.index ["appointment_id", "service_id"], name: "index_appointments_services_on_appointment_id_and_service_id"
   end
 
   create_table "barbers", force: :cascade do |t|
@@ -52,10 +58,8 @@ ActiveRecord::Schema.define(version: 2019_04_03_035637) do
     t.string "service_description", default: "", null: false
     t.integer "service_duration", default: 0, null: false
     t.decimal "service_price", default: "0.0", null: false
-    t.bigint "appointment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["appointment_id"], name: "index_services_on_appointment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,5 +78,4 @@ ActiveRecord::Schema.define(version: 2019_04_03_035637) do
   add_foreign_key "appointments", "barbers"
   add_foreign_key "appointments", "customers"
   add_foreign_key "customers", "users"
-  add_foreign_key "services", "appointments"
 end

@@ -27,11 +27,36 @@
     src: asset_url('BarberStreet.ttf')format('truetype');
 }
 
-
+.thumbnail {
+    text-align: justify;
+    min-height:250px;
+    padding-top:-20px;
+    background-color: rgba(255,255,255,0.7);
+    h3{
+        text-align: center;
+        margin-top:0px;
+        a{  
+            font-size: 3rem;
+            font-family: BarberFont;
+            color: $navbarColor;
+        }
+    }
+    h2{
+        text-align: center;
+        margin-top:0px;
+        a{  
+            font-size: 3rem;
+            color: $navbarColor;
+        }
+    }
+    .caption{
+        text-align:center;
+    }
+}
 
 .title-container{
     font-family: BarberFont;
-    font-size:4em;
+    font-size:2.5vw;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +66,7 @@
         font-size:2em;
     }
 }
+
 .elements{
     display:flex;
     flex-wrap: wrap;
@@ -49,13 +75,20 @@
 .element{
     width:30%;
     min-width: 300px;
+    h3{text-align: center;
+        margin-top:0px;
+        font-size: 3vw;
+        font-family: BarberFont;
+        color: $navbarColor;
+    }
 }
 
 .navbar-brand{
     font-family: BarberFont;
-    font-size:5em; 
+    font-size:5.9vw; 
     position:absolute;
-    left:40%;
+    left:50%;
+    margin-left: -15vw;
     margin-top:20px;
 }
 
@@ -64,5 +97,6 @@
 }
 
 .container{
-    background-color:rgba(255,255,255,0.5)
+    background-color:rgba(255,255,255,0.5);
+    padding:20px;
 }

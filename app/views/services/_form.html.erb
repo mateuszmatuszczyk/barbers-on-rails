@@ -1,41 +1,26 @@
 <%= form_with(model: service, local: true) do |form| %>
-  <% if service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
-
-      <ul>
-      <% service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+ 
+<div class="form-group">
     <%= form.label :service_name %>
-    <%= form.text_field :service_name %>
+    <%= form.text_field :service_name, class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :service_description %>
-    <%= form.text_field :service_description %>
+    <%= form.text_field :service_description, class: "form-control" %>
   </div>
 
-  <div class="field">
+ <div class="form-group">
     <%= form.label :service_duration %>
-    <%= form.number_field :service_duration %>
+    <%= form.number_field :service_duration, class: "form-control" %>
   </div>
 
-  <div class="field">
+ <div class="form-group">
     <%= form.label :service_price %>
-    <%= form.text_field :service_price %>
-  </div>
-  <div class="field">
-    <%= form.label :appointment_id %>
-    <%= form.text_field :appointment_id %>
+    <%= form.text_field :service_price, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-default"%>
   </div>
 <% end %>

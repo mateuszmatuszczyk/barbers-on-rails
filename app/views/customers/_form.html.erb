@@ -1,3 +1,4 @@
+
 <%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +12,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :customer_name %>
-    <%= form.text_field :customer_name %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :customer_name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :customer_number %>
-    <%= form.text_field :customer_number %>
+  <div class="form-group">
+    <%= form.label :number %>
+    <%= form.text_field :customer_number, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :customer_photo_path %>
-    <%= form.text_field :customer_photo_path %>
+  <div class="form-group">
+    <%= form.label :avatar %>
+    <%= form.text_field :customer_photo_path, class: "form-control" %>
   </div>
 <!-- 
   <div style="visibility:hidden" class="field">
     <%= form.label :user_id %>
     <%= form.text_field :user_id %>
-  </div>
+  </div> 
 -->
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-default"  %>
   </div>
 <% end %>
