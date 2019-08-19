@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <%= link_to 'Barbers on Rails', root_path, class: 'navbar-brand' %>
-            
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -54,7 +54,8 @@
                     <li><%= link_to "Customer Profile", "/signedinuserprofile", :class => 'btn btn-default' %></li>
                     <li><%= link_to "Barbers", barbers_path , :class => 'btn btn-default' %></li>
                     <li><%= link_to "Services", services_path , :class => 'btn btn-default' %></li>
-                    <li><%= link_to "Your Appointments", customer_appointments_path(current_user), :class => 'btn btn-default'  %></li>
+                    <li><%= link_to "Your Appointments", customer_appointments_path(current_user), :class => 'btn btn-default'  %>
+                    </li>
                     <%end%>
                 </ul>
                 </ul>
@@ -64,11 +65,4 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </div>
-</nav>
-
-
-<div class="inner">
-
-
-</div>
 </nav>
