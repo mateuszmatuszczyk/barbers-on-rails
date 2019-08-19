@@ -26,7 +26,7 @@
   <%= form.label :services %></br>
   <% Service.all.each do |service| %>
     <%= check_box_tag "appointment[service_ids][]", service.id, @appointment.service_ids.include?(service.id), id: dom_id(service)  %>
-    <%= label_tag dom_id(service), service.service_name %></br>
+    <%= label_tag dom_id(service),service.service_name %></br>
   <% end%>
 </div>
 <!--

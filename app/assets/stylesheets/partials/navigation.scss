@@ -8,12 +8,17 @@ body {
       color: white;
     }
   }
-
+  #second_navbar{
+    display:none;
+  }
   .navbar-default{
     background:transparent !important;
   }
   nav {
     @media only screen and (min-width: 966px) {
+      #second_navbar{
+        display:block;
+      }
     li{
       margin-left:20px;
       width:10vw;
