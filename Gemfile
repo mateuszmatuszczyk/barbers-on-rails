@@ -31,6 +31,8 @@ gem 'font-awesome-rails'
 gem "jquery-rails"
 gem 'bootstrap_form'
 
+# Unsplash Gem is used for fetching images from Unsplash API
+gem 'unsplash'
 
 
 group :development do

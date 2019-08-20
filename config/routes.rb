@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'gallery/index'
   # root url
  root 'admin_dashboard#index'
 
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
  
  get 'admin_dashboard/index'
  get '/signedinuserprofile' => 'customers#signedinuserprofile'
+ 
+ get 'gallery/index' => 'gallery#index'
  # get '/signedinadmin' => ''
 
 end

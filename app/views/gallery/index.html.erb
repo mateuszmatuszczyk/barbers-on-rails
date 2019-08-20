@@ -1,0 +1,14 @@
+<div id="photo_gallery">
+    <div class="row">
+            <div class="title-container">
+                    <h1>Gallery</h1>
+                  </div>
+        </div>
+        <% @search_results.each do |photo| %>
+            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe" >
+                <%= image_tag (photo[:urls][:small]) %>
+            </div >
+        <% end %>
+    </div>
+</div>
+</div>
