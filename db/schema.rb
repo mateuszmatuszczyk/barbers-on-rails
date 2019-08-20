@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 2019_08_19_154108) do
   end
 
   create_table "barbers", force: :cascade do |t|
-    t.string "barber_name", default: "", null: false
+    t.string "barber_name", default: "Barber Name", null: false
     t.string "barber_bio", default: "Barber's bio...", null: false
-    t.string "barber_photo_path", default: "blank", null: false
+    t.string "barber_photo_path", default: "avatar1", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_154108) do
   create_table "customers", force: :cascade do |t|
     t.string "customer_name", default: "", null: false
     t.string "customer_number", default: "", null: false
-    t.string "customer_photo_path", default: "blank", null: false
+    t.string "customer_photo_path", default: "avatar2", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2019_08_19_154108) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.string "service_name", default: "", null: false
-    t.string "service_description", default: "", null: false
+    t.string "service_name", default: "Service Name", null: false
+    t.string "service_description", default: "Service description...", null: false
     t.integer "service_duration", default: 0, null: false
     t.decimal "service_price", default: "0.0", null: false
     t.datetime "created_at", null: false
