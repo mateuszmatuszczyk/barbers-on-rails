@@ -1,12 +1,10 @@
-<div class="title-container">
-  <h1><%= @barber.barber_name%></h1>
-</div>
+
 <div class="row">
   <div class="container col-lg-6 col-md-offset-3 text-center">
-      <p>
-          <strong>Barber Avatar:</strong></br>
-          <%= @barber.barber_photo_path %>
-        </p>
+    <%= image_tag ( @barber.barber_photo_path) %>
+      <div class="title-container">
+          <h1><%= @barber.barber_name%></h1>
+        </div>
     <p>
       <strong>Barber Name:</strong></br>
       <%= @barber.barber_name %>

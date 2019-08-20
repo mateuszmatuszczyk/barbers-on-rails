@@ -6,13 +6,10 @@
     <div class="elements">
       <div class="element">
 
+        <%= image_tag ( @customer.customer_photo_path) %>
         <h3><%= @customer.customer_name %></h3>
         <p>
 
-            <p>
-                <strong>Customer Avatar:</strong></br>
-                <%= @customer.customer_photo_path %>
-              </p>
           <p>
             <strong>Customer Name:</strong></br>
             <%= @customer.customer_name %>

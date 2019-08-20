@@ -1,20 +1,22 @@
-<div class ="title-container">
+<div class="title-container">
   <h1>Customers</h1>
 </div>
 
 <div class="elements">
   <% @customers.each do |customer| %>
-    <div class="element">
-      <div class="thumbnail">
-        <div class="caption">
-          <h3><%= link_to (customer.customer_name), customer_path(customer) %></h3>
-          <p><strong>Name: </strong><%= customer.customer_name %></p>
-          <p><strong>Number: </strong><%= customer.customer_number %></p>
-          <p><strong>Name: </strong><%= customer.customer_number %></p>
+  <%= link_to customer_path(customer), :action=> "go" do %>
+  <div class="element">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%= customer.customer_name %></h3>
+        <p><strong>Name: </strong><%= customer.customer_name %></p>
+        <p><strong>Number: </strong><%= customer.customer_number %></p>
+        <p><strong>Name: </strong><%= customer.customer_number %></p>
         <p><strong>Avatar: </strong><%= customer.customer_photo_path %></p>
-        </div>
       </div>
     </div>
+  </div>
+  <% end %>
   <% end %>
 </div>
 

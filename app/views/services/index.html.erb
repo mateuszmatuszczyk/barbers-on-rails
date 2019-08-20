@@ -6,14 +6,26 @@
 
 <div class="elements">
   <% @services.each do |service| %>
+  <%= link_to service_path(service), :action=> "go" do %>
     <div class="element">
       <div class="thumbnail">
         <div class="caption">
-          <h3><%= link_to (service.service_name), service_path(service) %></h3>
+          <h3><%= service.service_name %></h3>
+          <p>
+              <strong>Service duration:</strong>
+              <%= service.service_duration %> min
+            </p>
+        
+            <p>
+              <strong>Service price:</strong>
+              €<%= service.service_price %>
+            </p>
           <p><%= service.service_description %></p>
+
         </div>
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>
 

@@ -11,11 +11,11 @@ before_action :ensure_admin
 
 
   def index
-  	@barbers = Barber.all
+  	@barbers = Barber.where(["barber_name LIKE ?", "%#{params[:search_barbers]}%"])
   	@users = User.all
-  	@customers = Customer.all
-  	@appointments = Appointment.all
-  	@services = Service.all
-
+  	@customers =  Customer.where(["customer_name LIKE ?", "%#{params[:search_customers]}%"])
+  	@services = Service.where(["service_name LIKE ?", "%#{params[:search_services]}%"])
+    
+  	@appointments = Appointment.where(["status LIKE ?", "%#{params[:search_appointments]}%"])
   end
 end

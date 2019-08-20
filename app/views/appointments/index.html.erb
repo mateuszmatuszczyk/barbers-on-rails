@@ -14,20 +14,22 @@
 
 <div class="elements">
   <% @appointments.each do |appointment| %>
+  <%= link_to appointment_path(appointment), :action=> "go" do %>
   <div class="element">
     <div class="thumbnail">
       <div class="caption">
-        <h2><%= link_to (appointment.appointment_date.strftime("%m-%d-%Y")), appointment_path(appointment) %></h2>
+        <h2><%= appointment.appointment_date.strftime("%m-%d-%Y") %></h2>
         <p><strong>Barber: </strong></br><%= appointment.barber.barber_name %></p>
         <p><strong>Time: </strong></br><%= appointment.appointment_time.strftime("%H:%M") %></p>
         <p><strong>Status: </strong></br><%= appointment.status %></p>
         <p><strong>Services: </strong></br>
-            <% appointment.services.each do |service| %>
-                <p><%= service.service_name %></p>
-            <% end %>            
+          <% appointment.services.each do |service| %>
+          <p><%= service.service_name %></p>
+          <% end %>
       </div>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
 

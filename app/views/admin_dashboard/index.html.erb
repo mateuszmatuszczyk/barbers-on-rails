@@ -1,22 +1,31 @@
+<h1 style="font-size: 5vw; font-family: BarberFont ; color:#333333; text-align: center;">Admin Dashboard</h1>
 
-<h1 style="font-size: 3.5vw; font-family: BarberFont ; color:black; text-align: center;">Admin Dashboard</h1>
+<div class="blue content-box">
+  <h1>Customers</h1>
+  <div class="row">
+    <div class="col-lg-6 col-md-offset-3 text-center">
+      <div class="form-group">
+        <%= form_tag admin_dashboard_index_path, :style=>"text-align:center; color:black;", :method => 'get' do %>
+        <%= text_field_tag :search_customers, params[:search], :style=>"text-align:center; margin-bottom:10px;", :class=>"form-control"%>
+        <%= submit_tag "Search", :class => 'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<div class="blue content-box"> 
-<h1>Customers</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="row">Customer name</th>
+        <th scope="row">Customer number</th>
+        <th scope="row">Customer photo path</th>
+        <th scope="row">User Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="row">Customer name</th>
-      <th scope="row">Customer number</th>
-      <th scope="row">Customer photo path</th>
-      <th scope="row">User Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customers.each do |customer| %>
+    <tbody>
+      <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.customer_name %></td>
         <td><%= customer.customer_number %></td>
@@ -26,26 +35,35 @@
         <td><%= link_to 'Edit', edit_customer_path(customer), :class => 'btn btn-default'%></td>
         <!-- <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<div class="red content-box"> 
-<h1>Barbers</h1>
+<div class="red content-box">
+  <h1>Barbers</h1>
+  <div class="row">
+      <div class="col-lg-6 col-md-offset-3 text-center">
+        <div class="form-group">
+          <%= form_tag admin_dashboard_index_path, :style=>"text-align:center; color:black;", :method => 'get' do %>
+          <%= text_field_tag :search_barbers, params[:search], :style=>"text-align:center; margin-bottom:10px;", :class=>"form-control"%>
+          <%= submit_tag "Search", :class => 'btn btn-default' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Barber Name</th>
+        <th>Barber Bio</th>
+        <th>Barber Avatar</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Barber Name</th>
-      <th>Barber Bio</th>
-      <th>Barber Avatar</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @barbers.each do |barber| %>
+    <tbody>
+      <% @barbers.each do |barber| %>
       <tr>
         <td><%= barber.barber_name %></td>
         <td><%= barber.barber_bio %></td>
@@ -53,27 +71,37 @@
         <td><%= link_to 'Show', barber, :class => 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_barber_path(barber), :class => 'btn btn-default'%></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 
 <div class="yellow content-box">
-<h1>Services</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Service Name</th>
-      <th>Service Description</th>
-      <th>Service Duration</th>
-      <th>Service Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Services</h1>
+  <div class="row">
+      <div class="col-lg-6 col-md-offset-3 text-center">
+        <div class="form-group">
+          <%= form_tag admin_dashboard_index_path, :style=>"text-align:center; color:black;", :method => 'get' do %>
+          <%= text_field_tag :search_services, params[:search], :style=>"text-align:center; margin-bottom:10px;", :class=>"form-control"%>
+          <%= submit_tag "Search", :class => 'btn btn-default' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Service Name</th>
+        <th>Service Description</th>
+        <th>Service Duration</th>
+        <th>Service Price</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @services.each do |service| %>
+    <tbody>
+      <% @services.each do |service| %>
       <tr>
         <td><%= service.service_name %></td>
         <td><%= service.service_description %></td>
@@ -84,31 +112,41 @@
         <!-- <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>
 
 <div class="green content-box">
-    <h1>Appointments</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Appointment Date</th>
-      <th>Appointment Time</th>
-      <th>Appointment Duration</th>
-      <th>Total Cost</th>
-      <th>Status</th>
-      <th>Customer</th>
-      <th>Barber</th>
-      <th>Services</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Appointments</h1>
+  <div class="row">
+      <div class="col-lg-6 col-md-offset-3 text-center">
+        <div class="form-group">
+          <%= form_tag admin_dashboard_index_path, :style=>"text-align:center; color:black;", :method => 'get' do %>
+          <%= text_field_tag :search_appointments, params[:search], :style=>"text-align:center; margin-bottom:10px;", :class=>"form-control"%>
+          <%= submit_tag "Search", :class => 'btn btn-default' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Appointment Date</th>
+        <th>Appointment Time</th>
+        <th>Appointment Duration</th>
+        <th>Total Cost</th>
+        <th>Status</th>
+        <th>Customer</th>
+        <th>Barber</th>
+        <th>Services</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @appointments.each do |appointment| %>
+    <tbody>
+      <% @appointments.each do |appointment| %>
       <tr>
         <td><%= appointment.appointment_date.strftime("%m-%d-%Y") %></td>
         <td><%= appointment.appointment_time.strftime("%H:%M") %></td>
@@ -118,59 +156,68 @@
         <td><%= appointment.customer.customer_name %></td>
         <td><%= appointment.barber.barber_name %></td>
         <td><% appointment.services.each do |service| %>
-                <p><%= service.service_name %></p>
-            <% end %>  
+          <p><%= service.service_name %></p>
+          <% end %>
         </td>
         <td><%= link_to 'Show', appointment, :class => 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_appointment_path(appointment), :class => 'btn btn-default'%></td>
         <!-- <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
         <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <style>
-body{
+  body {
 
-  color:  #ffffff;
-}
-th{
-  vertical-align: middle;
-  text-align: center;
-}
-td{
-  vertical-align: middle !important;
-}
-table{
-  vertical-align: middle;
-    width:100%
-}
-.yellow{
-  background: #313131;
-}
-.blue{
-  background: #525252;
-}
+    color: #ffffff;
+  }
 
-.red{
-  background:#414141;
-}
-.content-box{
-  display:inline-block;
-  margin:10px 0px;
-  text-align: center;
-  padding:0;
-  width:100%;
-}
-.green{
-  margin-top:10px;
-  background:#1d1d1d;
-  width: 100%;
-}
-h1{
-  font-family: BarberFont;
-  font-size: 2vw;
-}
+  th {
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  td {
+    vertical-align: middle !important;
+  }
+
+  table {
+    vertical-align: middle;
+    width: 100%
+  }
+
+  .yellow {
+    background:#272727de;
+
+  }
+
+  .blue {
+    background:#525252d6;  
+  }
+  
+  .red {
+    background:#414141e0;
+  }
+
+  .content-box {
+    display: inline-block;
+    margin: 10px 0px;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .green {
+    margin-top: 10px;
+    background:#1d1d1dde;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: BarberFont;
+    font-size: 2vw;
+  }
 </style>
