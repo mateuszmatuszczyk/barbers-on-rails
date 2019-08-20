@@ -1,16 +1,16 @@
 
-<h1 style="text-align: center;">Welcome to BarbersOnRails</h1>
+<h1 style="font-size: 3.5vw; font-family: BarberFont ; color:black; text-align: center;">Admin Dashboard</h1>
 
 <div class="blue content-box"> 
 <h1>Customers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Customer name</th>
-      <th>Customer number</th>
-      <th>Customer photo path</th>
-      <th>User Email</th>
+      <th scope="row">Customer name</th>
+      <th scope="row">Customer number</th>
+      <th scope="row">Customer photo path</th>
+      <th scope="row">User Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,9 +22,9 @@
         <td><%= customer.customer_number %></td>
         <td><%= customer.customer_photo_path %></td>
         <td><%= customer.user.email %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer)%></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <td><%= link_to 'Show', customer, :class => 'btn btn-default'%></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), :class => 'btn btn-default'%></td>
+        <!-- <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -34,12 +34,12 @@
 <div class="red content-box"> 
 <h1>Barbers</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Barber name</th>
-      <th>Barber bio</th>
-      <th>Barber photo path</th>
+      <th>Barber Name</th>
+      <th>Barber Bio</th>
+      <th>Barber Avatar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -50,8 +50,8 @@
         <td><%= barber.barber_name %></td>
         <td><%= barber.barber_bio %></td>
         <td><%= barber.barber_photo_path %></td>
-        <td><%= link_to 'Show', barber %></td>
-       <!-- x -->
+        <td><%= link_to 'Show', barber, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_barber_path(barber), :class => 'btn btn-default'%></td>
       </tr>
     <% end %>
   </tbody>
@@ -61,14 +61,13 @@
 
 <div class="yellow content-box">
 <h1>Services</h1>
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Service name</th>
-      <th>Service description</th>
-      <th>Service duration</th>
-      <th>Service price</th>
-      <th>Barber</th>
+      <th>Service Name</th>
+      <th>Service Description</th>
+      <th>Service Duration</th>
+      <th>Service Price</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -78,9 +77,10 @@
       <tr>
         <td><%= service.service_name %></td>
         <td><%= service.service_description %></td>
-        <td><%= service.service_duration %></td>
-        <td><%= service.service_price %></td>
-        <td><%= link_to 'Show', service %></td>
+        <td><%= service.service_duration %> min</td>
+        <td>€<%= service.service_price %></td>
+        <td><%= link_to 'Show', service, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_service_path(service), :class => 'btn btn-default'%></td>
         <!-- <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
@@ -92,16 +92,17 @@
 
 <div class="green content-box">
     <h1>Appointments</h1>
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Appointment time</th>
-      <th>Appointment date</th>
-      <th>Appointment duration</th>
-      <th>Total cost</th>
+      <th>Appointment Date</th>
+      <th>Appointment Time</th>
+      <th>Appointment Duration</th>
+      <th>Total Cost</th>
       <th>Status</th>
       <th>Customer</th>
       <th>Barber</th>
+      <th>Services</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -109,16 +110,21 @@
   <tbody>
     <% @appointments.each do |appointment| %>
       <tr>
-        <td><%= appointment.appointment_time %></td>
-        <td><%= appointment.appointment_date %></td>
-        <td><%= appointment.appointment_duration %></td>
-        <td><%= appointment.total_cost %></td>
+        <td><%= appointment.appointment_date.strftime("%m-%d-%Y") %></td>
+        <td><%= appointment.appointment_time.strftime("%H:%M") %></td>
+        <td><%= appointment.appointment_duration %> min</td>
+        <td>€<%= appointment.total_cost %></td>
         <td><%= appointment.status %></td>
         <td><%= appointment.customer.customer_name %></td>
         <td><%= appointment.barber.barber_name %></td>
-        <td><%= link_to 'Show', appointment %></td>
-        <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% appointment.services.each do |service| %>
+                <p><%= service.service_name %></p>
+            <% end %>  
+        </td>
+        <td><%= link_to 'Show', appointment, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_appointment_path(appointment), :class => 'btn btn-default'%></td>
+        <!-- <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -126,30 +132,45 @@
 </div>
 
 <style>
+body{
+
+  color:  #ffffff;
+}
+th{
+  vertical-align: middle;
+  text-align: center;
+}
+td{
+  vertical-align: middle !important;
+}
 table{
-  width:100%
+  vertical-align: middle;
+    width:100%
 }
 .yellow{
-  background: yellow;
+  background: #313131;
 }
 .blue{
-  background: blue;
+  background: #525252;
 }
 
 .red{
-  background: red;
+  background:#414141;
 }
 .content-box{
   display:inline-block;
-  margin:0 auto;
+  margin:10px 0px;
   text-align: center;
   padding:0;
   width:100%;
-  <%# height:300px;    %>
 }
 .green{
-  margin-top:4px;
-  background: green;
+  margin-top:10px;
+  background:#1d1d1d;
   width: 100%;
+}
+h1{
+  font-family: BarberFont;
+  font-size: 2vw;
 }
 </style>

@@ -50,7 +50,7 @@
         }
     }
     .caption{
-        text-align:center;
+        text-align :center;
     }
 }
 
@@ -68,10 +68,15 @@
 }
 
 .elements{
+
+    a{
+        display:contents;
+    }
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .element{
     width:30%;
     min-width: 300px;

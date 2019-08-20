@@ -5,13 +5,10 @@ before_action :authenticate_user!
     @services = Service.all
   end
   
-  # GET /services/1
-  # GET /services/1.json
   def show
     @service = Service.find(params[:id])
   end
 
-  # GET /services/new
   def new
     @service = Service.new 
     respond_to do |format|
@@ -21,13 +18,10 @@ before_action :authenticate_user!
     end
   end
 
-  # GET /services/1/edit
   def edit
     @service = Service.find(params[:id])
   end
 
-  # POST /services
-  # POST /services.json
   def create
     @service = Service.new(service_params)
 

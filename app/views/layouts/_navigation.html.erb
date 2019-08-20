@@ -46,6 +46,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav" id="nav" style="color:white; margin-left: 27%;">
                     <% if user_signed_in? && current_user.admin %>
+                    <li><%= link_to "Admin Dashboard", admin_dashboard_index_path, :class => 'btn btn-default' %></li>
                     <li><%= link_to "Customers", "/signedinuserprofile", :class => 'btn btn-default' %></li>
                     <li><%= link_to "Barbers", barbers_path , :class => 'btn btn-default' %></li>
                     <li><%= link_to "Services", services_path , :class => 'btn btn-default' %></li>

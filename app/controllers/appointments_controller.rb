@@ -6,37 +6,26 @@ class AppointmentsController < ApplicationController
     @barbers = Barber.all
     @appointments = Appointment.all
     @customer = Customer.find_by_user_id(current_user.id) 
-
-    # @services = Service.all
-    # @appointments = @customer.appointments
   end
 
   def show
-    # @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.find(params[:id])
     @services = @appointment.services
   end
-
-
 
   def new
     @barbers = Barber.all
     @customer = Customer.find_by_user_id(current_user.id)
     @appointment = Appointment.new
     respond_to do |format|
-      format.html # new.html.erb 
-      # format.json {render json: @barber} 
+      format.html
       format.json {render json: @appointment} 
     end
   end
-
+  
   def edit
     @barbers = Barber.all
-  # @customer= Customer.find(params[:customer_id])
-
-  # @appointment = @customer.appointments.find(params[:id])
-  @appointment = Appointment.find(params[:id])
-
+    @appointment = Appointment.find(params[:id])
   end
 
 
@@ -46,6 +35,18 @@ class AppointmentsController < ApplicationController
     @barbers = Barber.all
     @appointment = Appointment.new(appointment_params)
     @appointment.customer = Customer.find_by_user_id(current_user.id)
+    temp_total_cost = 0
+    temp_total_duration = 0
+    @appointment.services.each do |service| 
+      temp_total_cost = temp_total_cost +service.service_price 
+      temp_total_duration = temp_total_duration + service.service_duration 
+    end
+    puts("\n\n\nTOTAL COST: "+temp_total_cost.to_s) 
+    puts("\n\n\nTOTAL DURATION: "+temp_total_duration.to_s) 
+    
+    @appointment.appointment_duration = temp_total_duration
+    @appointment.total_cost = temp_total_cost
+
     respond_to do |format|
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
@@ -70,11 +71,11 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:customer_id])
-    @appointment = Appointment.find(params[:appointment_id])
+    # @customer = Customer.find(params[:customer_id])
+    @appointment = Appointment.find(params[:id])
     @appointment.destroy
     respond_to do |format|
-      format.html { redirect_to customer_appointments_path(@customer) }
+      format.html { redirect_to admin_dashboard_index_path }
       format.xml { head :ok }
     end
   end
