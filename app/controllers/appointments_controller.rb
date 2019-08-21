@@ -1,3 +1,5 @@
+require 'appointment_calculator'
+
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! 
@@ -39,17 +41,18 @@ class AppointmentsController < ApplicationController
     puts("\n\n\n BARBER:"+@appointment.barber.to_json+"\n\n\n")
     puts("\n\n\n CUSTOMER:"+@appointment.customer.to_json+"\n\n\n")
     puts("\n\n\n SERVICES:"+@appointment.services.to_json+"\n\n\n")
-    temp_total_cost = 0
-    temp_total_duration = 0
-    @appointment.services.each do |service| 
-      temp_total_cost = temp_total_cost +service.service_price 
-      temp_total_duration = temp_total_duration + service.service_duration 
-    end
-    puts("\n\n\nTOTAL COST: "+temp_total_cost.to_s) 
-    puts("\n\n\nTOTAL DURATION: "+temp_total_duration.to_s) 
+    # temp_total_cost = 0
+    # temp_total_duration = 0
+    # @appointment.services.each do |service| 
+    #   temp_total_cost = temp_total_cost +service.service_price 
+    #   temp_total_duration = temp_total_duration + service.service_duration 
+    # end
+    result = AppointmentCalculator.calculate(@appointment.services)
+
+    puts("\n\n\nRESULT: "+result.to_s) 
     
-    @appointment.appointment_duration = temp_total_duration
-    @appointment.total_cost = temp_total_cost
+    # @appointment.appointment_duration = temp_total_duration
+    # @appointment.total_cost = temp_total_cost
 
     respond_to do |format|
       if @appointment.save

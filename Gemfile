@@ -34,6 +34,9 @@ gem 'bootstrap_form'
 # Unsplash Gem is used for fetching images from Unsplash API
 gem 'unsplash'
 
+#Custome Gem used for calculating Appointment's total duration and total cost.
+gem 'appointment-calculator', '~> 0.0.0'
+
 
 group :development do
   # Provide better styling and readability for Rails Error pages.
