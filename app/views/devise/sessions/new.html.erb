@@ -4,6 +4,7 @@
 
 <div class="row">
   <div class="container col-lg-6 col-md-offset-3 text-center">
+      <%= render 'layouts/alerts'%>
     <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">

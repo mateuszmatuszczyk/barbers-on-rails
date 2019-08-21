@@ -35,6 +35,10 @@ class AppointmentsController < ApplicationController
     @barbers = Barber.all
     @appointment = Appointment.new(appointment_params)
     @appointment.customer = Customer.find_by_user_id(current_user.id)
+    puts("\n\n\n APPOINTMENT:"+@appointment.to_json+"\n\n\n")
+    puts("\n\n\n BARBER:"+@appointment.barber.to_json+"\n\n\n")
+    puts("\n\n\n CUSTOMER:"+@appointment.customer.to_json+"\n\n\n")
+    puts("\n\n\n SERVICES:"+@appointment.services.to_json+"\n\n\n")
     temp_total_cost = 0
     temp_total_duration = 0
     @appointment.services.each do |service| 

@@ -13,8 +13,10 @@
 
   <body>
     <div class="container" style="min-height:600px;">  
-
-        <%= render 'layouts/alerts'%>
+        <div style="text-align: center; font-size:3rem; margin-bottom:20px; color:rgb(15, 14, 14); background: rgba(220, 200, 20, 0.322)">
+          <%= notice %>
+        </div>
+        
         <%= render 'layouts/navigation' %>
         
     <%= yield %>
