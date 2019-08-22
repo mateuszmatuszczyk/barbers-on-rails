@@ -35,7 +35,7 @@ gem 'bootstrap_form'
 gem 'unsplash'
 
 #Custome Gem used for calculating Appointment's total duration and total cost.
-gem 'appointment-calculator', '~> 0.0.0'
+gem 'appointment-calculator'
 
 
 group :development do

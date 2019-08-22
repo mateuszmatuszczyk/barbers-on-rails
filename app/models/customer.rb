@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
   belongs_to :user
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
 
   validates :customer_name, presence: true , length: {minimum:3, maximum:30}
   validates :customer_number, presence: true

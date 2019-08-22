@@ -252,7 +252,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  appointment-calculator (~> 0.0.0)
+  appointment-calculator
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)

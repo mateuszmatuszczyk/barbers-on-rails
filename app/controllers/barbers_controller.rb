@@ -59,7 +59,7 @@ class BarbersController < ApplicationController
   def destroy
     @barber.destroy
     respond_to do |format|
-      format.html { redirect_to barbers_url, notice: 'Barber was successfully destroyed.' }
+      format.html { redirect_to admin_dashboard_index_url, notice: 'Barber was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,31 +1,48 @@
-
 <%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<% if customer.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
-      <ul>
-      <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% customer.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :customer_name, class: "form-control" %>
-  </div>
+<div class="form-group">
+  <%= form.label :name %>
+  <%= form.text_field :customer_name, class: "form-control" %>
+</div>
 
-  <div class="form-group">
-    <%= form.label :number %>
-    <%= form.text_field :customer_number, class: "form-control" %>
-  </div>
+<div class="form-group">
+  <%= form.label :number %>
+  <%= form.text_field :customer_number, class: "form-control" %>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
+
+    <label>Choose your Avatar</label></br>
+  <%= form.radio_button(:customer_photo_path, "avatar1") %>
+  <%= image_tag "avatar1.png" %>
+
+  <%= form.radio_button(:customer_photo_path, "avatar2") %>
+  <%= image_tag "avatar2.png" %>
+  
+  <%= form.radio_button(:customer_photo_path, "avatar3") %>
+  <%= image_tag "avatar3.png" %>
+  
+  <%= form.radio_button(:customer_photo_path, "avatar4") %>
+  <%= image_tag "avatar4.png" %>
+  
+  <!-- <%= form.label :avatar %>
+    <%= form.text_field :customer_photo_path, class: "form-control" %> -->
+</div>
+<!-- <div class="form-group">
     <%= form.label :avatar %>
     <%= form.text_field :customer_photo_path, class: "form-control" %>
-  </div>
+  </div> -->
 <!-- 
   <div style="visibility:hidden" class="field">
     <%= form.label :user_id %>
@@ -33,7 +50,8 @@
   </div> 
 -->
 
-  <div class="actions">
-    <%= form.submit class: "btn btn-default"  %>
-  </div>
+<div class="actions">
+  <%= form.submit class: "btn btn-default"  %></br>
+</br>
+</div>
 <% end %>

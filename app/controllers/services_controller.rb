@@ -54,9 +54,10 @@ before_action :authenticate_user!
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
+    @service = Service.find(params[:id])
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to admin_dashboard_index_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
