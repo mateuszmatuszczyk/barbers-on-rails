@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, index: { unique: true }
   has_many :appointments, dependent: :destroy
 
   validates :customer_name, presence: true , length: {minimum:3, maximum:30}

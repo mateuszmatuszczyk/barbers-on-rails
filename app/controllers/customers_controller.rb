@@ -47,7 +47,7 @@ class CustomersController < ApplicationController
     @customer.user_id = current_user.id
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to @customer, notice: 'New Customer was successfully created. Thank you!' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
@@ -61,7 +61,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
+        format.html { redirect_to @customer, notice: 'Thank you! Customer details were successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to admin_dashboard_index_url, notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to admin_dashboard_index_url, notice: 'Thank you! Customer record was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

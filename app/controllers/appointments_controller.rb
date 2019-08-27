@@ -80,11 +80,11 @@ class AppointmentsController < ApplicationController
 
   def update
     
-    @services = @appointment.services
-    result = AppointmentCalculator.calculate(@services)
-    @appointment.appointment_duration = result[:total_duration]
-    @appointment.total_cost = result[:total_cost]
     respond_to do |format|
+      @services = @appointment.services
+      result = AppointmentCalculator.calculate(@services)
+      @appointment.appointment_duration = result[:total_duration]
+      @appointment.total_cost = result[:total_cost]
       if @appointment.update(appointment_params)
        
     
